@@ -1,6 +1,7 @@
 # Clj-kondo.configs
 
-This repo contains configurations that can be used with clj-kondo.
+This repo contains configurations and/or recommendations that can be used with
+[clj-kondo](https://github.com/borkdude/clj-kondo/).
 
 ## License
 

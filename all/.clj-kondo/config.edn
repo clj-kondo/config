@@ -1,0 +1,3 @@
+{:config-paths ["../../rum/.clj-kondo"
+                "../../slingshot/.clj-kondo"
+                "../../fulcro/.clj-kondo"]}

@@ -15,7 +15,7 @@ where `<coordinates>` is `clj-kondo/configs {:git/url "https://github.com/clj-ko
 
 This copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively.
 
-You can then add `"configs/rum"` and `"configs/slingshot"`  to your `:config-paths` in `config.edn` and Rum syntax will be recognized.
+You can then add `"configs/rum"` and `"configs/slingshot"`  to your `:config-paths` in `config.edn` and Rum and Slinghot syntax will be recognized.
 
 ## License
 

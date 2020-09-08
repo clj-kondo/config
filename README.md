@@ -11,7 +11,7 @@ This repo has an **experimental** main entrypoint that copies library specific c
 clojure -Sdeps '{:deps {<coordinates>}' -m clj-kondo.configs --lib rum --lib slingshot
 ```
 
-where `<coordinates>` is `clj-kondo/configs {:git/url "https://github.com/clj-kondo/clj-kondo.configs" :sha "<sha>"}`
+where `<coordinates>` is `clj-kondo/configs {:git/url "https://github.com/clj-kondo/clj-kondo.configs" :sha "37dac4721754ffc1f390b1baf194a1dbbceabf28"}`
 
 copies Rum config into `.clj-kondo/configs/rum`.
 

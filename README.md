@@ -13,7 +13,7 @@ clojure -Sdeps '{:deps {<coordinates>}}' -m clj-kondo.configs --lib rum --lib sl
 
 where `<coordinates>` is `clj-kondo/configs {:git/url "https://github.com/clj-kondo/clj-kondo.configs" :sha "37dac4721754ffc1f390b1baf194a1dbbceabf28"}`
 
-copies Rum config into `.clj-kondo/configs/rum`.
+copies Rum and Slingshot config into `.clj-kondo/configs/rum`.
 
 You can then add `"configs/rum"` to your `:config-paths` in `config.edn` and Rum syntax will be recognized.
 

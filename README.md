@@ -1,4 +1,4 @@
-# Clj-kondo.configs
+# Clj-kondo config
 
 This repo contains configurations and/or recommendations that can be used with
 [clj-kondo](https://github.com/borkdude/clj-kondo/).
@@ -11,7 +11,7 @@ This repo has an **experimental** main entrypoint that copies library specific c
 clojure -Sdeps '{:deps {<coordinates>}}' -m clj-kondo.configs --lib rum --lib slingshot
 ```
 
-where `<coordinates>` is `clj-kondo/configs {:git/url "https://github.com/clj-kondo/clj-kondo.configs" :sha "37dac4721754ffc1f390b1baf194a1dbbceabf28"}`
+where `<coordinates>` is `clj-kondo/config {:git/url "https://github.com/clj-kondo/config" :sha "37dac4721754ffc1f390b1baf194a1dbbceabf28"}`
 
 This copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively.
 

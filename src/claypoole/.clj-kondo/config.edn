@@ -1,0 +1,5 @@
+{:linters
+ {:claypoole {:level :warning}}
+ :hooks {:analyze-call {com.climate.claypoole/upfor  hooks.claypoole.upfor/upfor
+                        com.climate.claypoole/pdoseq hooks.claypoole.upfor/upfor
+                        com.climate.claypoole/pfor   hooks.claypoole.upfor/upfor}}}

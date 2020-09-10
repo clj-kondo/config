@@ -5,13 +5,9 @@ This repo contains configurations and/or recommendations that can be used with
 
 ## Installation
 
-This repo has an **experimental** main entrypoint that copies library specific config and hooks to your `.clj-kondo`. E.g.:
+This repo has an **experimental** main entrypoint that copies library specific config and hooks to your `.clj-kondo`.
 
-``` shell
-clojure -A:clj-kondo/config --lib rum --lib slingshot
-```
-
-provided that you have an alias like this in your `deps.edn`:
+Assuming the following alias in your `deps.edn`:
 
 ``` clojure
 :clj-kondo/config
@@ -20,7 +16,13 @@ provided that you have an alias like this in your `deps.edn`:
  :main-opts ["-m" "clj-kondo.config"]}
 ``` 
 
-This copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:
+you can invoke it with:
+
+``` shell
+clojure -A:clj-kondo/config --lib rum --lib slingshot
+```
+
+This then copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:
 
 ``` shell
 $ clojure -A:clj-kondo/config --lib rum --lib slingshot
@@ -30,7 +32,7 @@ Copying slingshot config to .clj-kondo/configs/slingshot
 Add "configs/rum", "configs/slingshot" to :config-paths in .clj-kondo/config.edn to activate configs.
 ```
 
-You can then add `"configs/rum"` and `"configs/slingshot"`  to your `:config-paths` in `config.edn` and Rum and Slinghot syntax will be recognized.
+To activate, you then add `"configs/rum"` and `"configs/slingshot"`  to your `:config-paths` in `config.edn` and Rum and Slinghot syntax will be recognized.
 
 ## License
 

@@ -1,8 +1,6 @@
 (ns example
-  (:require [mockery.core
-             :as mockery
-             :refer [with-mock with-mocks]]
-            [clojure.test :refer [is]]))
+  (:require [clojure.test :refer [is]]
+            [mockery.core :as mockery :refer [with-mock with-mocks]]))
 
 (with-mock _
   {:target ::test-fn
@@ -10,12 +8,12 @@
   (example/test-fn 10))
 
 (with-mock _
-  {:target :test-fn
+  {:target :test-fn ;; :test-fn must be fully qualified
    :return (fn [& _] 100500)}
   (example/test-fn 10))
 
 (with-mock _
-  {:return (fn [& _] 100500)}
+  {:return (fn [& _] 100500)} ;; no target specified
   (example/test-fn 10))
 
 (with-mocks
@@ -36,9 +34,10 @@
           :call-args-list '[(1 2)]
           :target ::test-fn-2})))
 
+;; what is this example supposed to do?
 (with-mocks
-  [foo {:target ::test-fn}
-   bar {}]
+  [foo {:target ::test-fn} ;; unresolved symbol foo?
+   bar {}] ;; unresolved symbol bar?
   (example/test-fn 1)
   (example/test-fn-2 1 2)
   (is (= @foo

@@ -1,7 +1,7 @@
 # Clj-kondo config
 
 This repo contains configurations and/or recommendations that can be used with
-[clj-kondo](https://github.com/borkdude/clj-kondo/).
+[clj-kondo](https://github.com/borkdude/clj-kondo/). Check the `src` folder for available configs.
 
 ## Installation
 

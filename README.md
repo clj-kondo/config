@@ -13,9 +13,10 @@ clojure -A:clj-kondo/config --lib rum --lib slingshot
 
 provided that you have an alias like this in your `deps.edn`:
 
-``` 
+``` clojure
 :clj-kondo/config
-  {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config" :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
+  {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config"
+                                  :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
    :main-opts ["-m" "clj-kondo.config"]}
 ``` 
 

@@ -12,14 +12,14 @@ Assuming the following alias in your `deps.edn`:
 ``` clojure
 :clj-kondo/config
 {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config"
-                                :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
+                                :sha "<latest-sha>"}}
  :main-opts ["-m" "clj-kondo.config"]}
 ``` 
 
 you can invoke it with:
 
 ``` shell
-clojure -A:clj-kondo/config --lib rum --lib slingshot
+$ clojure -A:clj-kondo/config --lib rum --lib slingshot
 ```
 
 This then copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:

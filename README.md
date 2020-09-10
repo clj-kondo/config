@@ -15,9 +15,9 @@ provided that you have an alias like this in your `deps.edn`:
 
 ``` clojure
 :clj-kondo/config
-  {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config"
-                                  :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
-   :main-opts ["-m" "clj-kondo.config"]}
+{:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config"
+                                :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
+ :main-opts ["-m" "clj-kondo.config"]}
 ``` 
 
 This copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:

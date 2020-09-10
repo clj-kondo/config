@@ -26,7 +26,6 @@ This then copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.cl
 
 ``` shell
 $ clojure -A:clj-kondo/config --lib rum --lib slingshot
-Removing previous rum config in .clj-kondo/configs/rum
 Copying rum config to .clj-kondo/configs/rum
 Copying slingshot config to .clj-kondo/configs/slingshot
 Add "configs/rum", "configs/slingshot" to :config-paths in .clj-kondo/config.edn to activate configs.

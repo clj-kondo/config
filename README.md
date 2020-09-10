@@ -8,10 +8,16 @@ This repo contains configurations and/or recommendations that can be used with
 This repo has an **experimental** main entrypoint that copies library specific config and hooks to your `.clj-kondo`. E.g.:
 
 ``` shell
-clojure -Sdeps '{:deps {<coordinates>}}' -m clj-kondo.config --lib rum --lib slingshot
+clojure -A:clj-kondo/config --lib rum --lib slingshot
 ```
 
-where `<coordinates>` is `clj-kondo/config {:git/url "https://github.com/clj-kondo/config" :sha "37dac4721754ffc1f390b1baf194a1dbbceabf28"}`
+provided that you have an alias like this in your `deps.edn`:
+
+``` 
+:clj-kondo/config
+  {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config" :sha "ddf2ba45c7e78133b2808657ce601051d364bce5"}}
+   :main-opts ["-m" "clj-kondo.config"]}
+``` 
 
 This copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:
 

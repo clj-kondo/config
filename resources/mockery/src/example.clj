@@ -16,6 +16,7 @@
   {:return (fn [& _] 100500)} ;; no target specified
   (example/test-fn 10))
 
+;; all valid
 (with-mocks
   [foo {:target ::test-fn}
    bar {:target :example/test-fn-2}]
@@ -34,19 +35,19 @@
           :call-args-list '[(1 2)]
           :target ::test-fn-2})))
 
-;; what is this example supposed to do?
 (with-mocks
-  [foo {:target ::test-fn} ;; unresolved symbol foo?
-   bar {}] ;; unresolved symbol bar?
+  ;; no target specified
+  [foo {:target ::test-fn}
+   bar {}]
   (example/test-fn 1)
   (example/test-fn-2 1 2)
-  (is (= @foo
+  (is (= @foo ;; no warning about foo, despite error in bindings
          {:called? true
           :call-count 1
           :call-args '(1)
           :call-args-list '[(1)]
           :target ::test-fn}))
-  (is (= @bar
+  (is (= @bar ;; no warning about foo, despite error in bindings
          {:called? true
           :call-count 1
           :call-args '(1 2)

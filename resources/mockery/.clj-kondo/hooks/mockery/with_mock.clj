@@ -1,7 +1,6 @@
 (ns hooks.mockery.with-mock
   (:require [clj-kondo.hooks-api :as api]))
 
-
 (defn with-mock [{:keys [:node]}]
   (let [[mock map & body] (rest (:children node))]
     (try
@@ -24,4 +23,6 @@
                mock
                body))}
       (catch Exception e
-        (api/reg-finding! (assoc (ex-data e) :message (ex-message e) :type :hook))))))
+        (api/reg-finding! (assoc (ex-data e) :message (ex-message e) :type :hook))
+        ;; when there is an error, ignore macro and only return body (in vector to prevent redundant do)
+        {:node (api/vector-node body)}))))

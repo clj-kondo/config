@@ -1,6 +1,8 @@
 (ns example
   (:require [rum.core :as rum]))
 
+;;;; defc
+
 (rum/defc label [text] ;; text is recognized as a binding
   [:div {:class "label"} text])
 
@@ -13,6 +15,18 @@
   < { :will-mount (fn [x] ;; mixin is parsed correctly
                     (assoc x ::time (js/Date.))) }
   [_text])
+
+(rum/defc defc-multiple-bodies
+  "docstring" ;; docstring is placed correctly
+  < { :will-mount (fn [x] ;; mixin is parsed correctly
+                    (assoc x ::time (js/Date.))) }
+  ([foo] (if foo
+           (defc-multiple-bodies foo nil)
+           (defc-multiple-bodies))) ;; invalid arity
+  ([foo bar] ;; bar is unused
+   foo))
+
+;;;; defcs
 
 (rum/defcs time-label ;; defcs is linted as defc
   < { :will-mount (fn [x] ;; mixin is parsed correctly
@@ -36,3 +50,12 @@
   < {:did-mount (fn [state] state)}
   [state input]
   input)
+
+(rum/defcs defcs-multiple-bodies
+  "docstring" ;; docstring is placed correctly
+  < {:dir-mount (fn [state] state)}
+  ([state foo]) ;; foo is unused, but state isn't
+  ([state foo bar]))
+
+(defcs-multiple-bodies) ;; invalid arity
+(defcs-multiple-bodies "hello") ;; valid arity

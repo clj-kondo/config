@@ -15,8 +15,9 @@
                 (list* (api/token-node 'let*)
                        (api/vector-node [state-arg (api/token-node nil)])
                        state-arg
-                       body))]
-      (api/list-node (cons fn-args (conj mixins body))))
+                       (concat mixins body)))
+          body (api/list-node [fn-args body])]
+      body)
     (let [[binding-vec & body] (:children body)]
       (api/list-node (cons binding-vec (concat mixins body))))))
 
@@ -31,26 +32,31 @@
                 (nnext args)
                 (next args))
          bodies
-         (loop [args* args
+         (loop [args* (seq args)
                 mixins []
                 bodies []]
-           (if (seq args*)
+           (if args*
              (let [a (first args*)
                    a-sexpr (api/sexpr a)]
                (cond (vector? a-sexpr) ;; a-sexpr is a binding vec and the rest is the body of the function
                      [(rewrite-body mixins (api/list-node args*) defcs?)]
-                     :else (recur (rest args*)
+                     (fn-body? a-sexpr)
+                     (recur (next args*)
+                            mixins
+                            (conj bodies (rewrite-body mixins a defcs?)))
+                     ;; assume mixin
+                     :else (recur (next args*)
                                   (conj mixins a)
                                   bodies)))
-             args))
+             bodies))
          new-node (with-meta
-                    (api/list-node (list* (api/token-node 'defn)
-                                          component-name
-                                          (if ?docstring
-                                            (cons ?docstring bodies)
-                                            bodies)))
+                    (api/list-node
+                     (list* (api/token-node 'defn)
+                            component-name
+                            (if ?docstring
+                              (cons ?docstring bodies)
+                              bodies)))
                     (meta node))]
-     (prn (api/sexpr new-node))
      new-node)))
 
 (defn defc [{:keys [:node]}]

@@ -17,6 +17,10 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 
+### IntelliJ/Cursive ###
+.idea/
+*.iml
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~

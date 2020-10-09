@@ -8,13 +8,12 @@
   [& _]
   ;; future
   (cp/future pool (println "Hi from future"))
-  ;(cp/completable-future pool (println "Hi from future"))
 
   ;; pdoseq
   (cp/pdoseq 8 [x coll]
-    (println "Doseqing over" x))
+             (println "Doseqing over" x))
   (cp/pdoseq pool [x coll :when (= x 1)]
-    (println "Doseqing over" x))
+             (println "Doseqing over" x))
 
   ;; pmap
   (cp/pmap 8
@@ -51,16 +50,22 @@
 
   ;; pfor
   (cp/pfor 8 [x coll]
-    (println "For over" x))
+           (println "For over" x))
   (cp/pfor pool [x coll
                  y coll
                  :when (and (= x 1) (= y 1))]
-    (println "For over" [x y]))
+           (println "For over" [x y]))
 
   ;; upfor
   (cp/upfor 8 [x coll]
-    (println "Ordered for over" x))
+            (println "Ordered for over" x))
   (cp/upfor pool [x coll
                   y coll
                   :when (and (= x 1) (= y 1))]
-    (println "Ordered for over" [x y])))
+            (println "Ordered for over" [x y]))
+
+  (cp/upfor 8) ;; arity warning with correct location
+
+  (let [x 8] ;; binding is used
+    (cp/upfor x [y coll] (println y)))
+  )

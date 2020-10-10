@@ -7,14 +7,12 @@
   (fn [{:keys [:node]}]
     (let [[pool & body] (rest (:children node))
           new-node (api/list-node
-                    [(api/token-node 'fn) ;; we produce a fn and not do to
-                                          ;; prevent redundant do warnings
-                     (api/vector-node [])
-                     pool
+                    (list*
+                     (api/token-node token)
                      (api/list-node
-                      (list*
-                       (api/token-node token)
-                       body))])]
+                      (list* (api/token-node 'do)
+                             pool
+                             body))))]
       {:node (with-meta new-node
                (meta node))})))
 
@@ -26,8 +24,7 @@
                     [(api/token-node token)
                      binding-vec-or-exprs
                      (api/list-node
-                      (list* (api/token-node 'fn)
-                             (api/vector-node [])
+                      (list* (api/token-node 'do)
                              pool
                              body))])]
       {:node (with-meta new-node

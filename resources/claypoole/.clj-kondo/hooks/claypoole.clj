@@ -10,7 +10,8 @@
                     (list*
                      (api/token-node token)
                      (api/list-node
-                      (list* (api/token-node 'do)
+                      (list* (api/token-node 'let*)
+                             (api/vector-node [])
                              pool
                              body))))]
       {:node (with-meta new-node
@@ -24,7 +25,8 @@
                     [(api/token-node token)
                      binding-vec-or-exprs
                      (api/list-node
-                      (list* (api/token-node 'do)
+                      (list* (api/token-node 'let*)
+                             (api/vector-node [])
                              pool
                              body))])]
       {:node (with-meta new-node

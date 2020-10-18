@@ -9,7 +9,7 @@
             (api/list-node
              [catch (api/token-node 'Exception) (api/token-node '_e#)
               (api/list-node
-               (list* (api/token-node 'let)
+               (list* (api/token-node 'let*)
                       (api/vector-node [selector (api/token-node nil)])
                       exprs))]))
           :else catch-node)))
@@ -32,7 +32,7 @@
                        catches)))
             [body-exprs catches]))
         new-node (api/list-node
-                  [(api/token-node 'let)
+                  [(api/token-node 'let*)
                    (api/vector-node
                     [(api/token-node '&throw-context) (api/token-node nil)])
                    (api/token-node '&throw-context) ;; use throw-context to avoid warning
@@ -41,4 +41,3 @@
                      (meta node))])]
     ;; (prn (api/sexpr new-node))
     {:node new-node}))
-

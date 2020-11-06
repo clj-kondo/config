@@ -1,1 +1,1 @@
-{:config-paths ["../../resources/clj_kondo.config/clj_kondo/mockery"]}
+{:config-paths ["../../resources/clj-kondo.exports/clj-kondo/mockery"]}

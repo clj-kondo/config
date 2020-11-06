@@ -1,1 +1,1 @@
-{:config-paths ["../../resources/clj_kondo.config/clj_kondo/claypoole"]}
+{:config-paths ["../../resources/clj-kondo.exports/clj-kondo/claypoole"]}

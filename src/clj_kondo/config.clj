@@ -21,7 +21,7 @@
 (defn -main [& args]
   (let [{:keys [:lib ]} (:options (parse-opts args cli-options))]
     (doseq [l lib]
-      (when-let [resource (io/resource (str l "/.clj-kondo"))]
+      (when-let [resource (io/resource (str "clj_kondo.config/clj-kondo" l))]
         (let [config-dir (io/file ".clj-kondo" "configs" l)]
           (when (.exists config-dir)
             (println "Removing previous" l "config in" (.getPath config-dir))

@@ -14,7 +14,7 @@ Assuming the following alias in your `deps.edn`:
 {:extra-deps {clj-kondo/config {:git/url "https://github.com/clj-kondo/config"
                                 :sha "<latest-sha>"}}
  :main-opts ["-m" "clj-kondo.config"]}
-``` 
+```
 
 you can invoke it with:
 

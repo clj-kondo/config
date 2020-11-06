@@ -1,4 +1,4 @@
-(ns example
+(ns clj-kondo.rum-test
   (:require [rum.core :as rum]))
 
 ;;;; defc

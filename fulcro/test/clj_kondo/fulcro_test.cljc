@@ -1,4 +1,4 @@
-(ns example
+(ns clj-kondo.fulcro-test
   (:require
    #?(:cljs [com.fulcrologic.fulcro.dom :as dom]
       :clj  [com.fulcrologic.fulcro.dom-server :as dom])

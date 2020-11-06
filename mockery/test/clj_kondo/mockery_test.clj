@@ -1,5 +1,6 @@
-(ns example
+(ns clj-kondo.mockery-test
   (:require [clojure.test :refer [is]]
+            [example.foo :as example]
             [mockery.core :as mockery :refer [with-mock with-mocks]]))
 
 (with-mock _

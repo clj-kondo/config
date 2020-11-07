@@ -1,4 +1,4 @@
-(ns hooks.mockery.with-mocks
+(ns clj-kondo.mockery.with-mocks
   (:require [clj-kondo.hooks-api :as api]))
 
 (defn with-mocks [{:keys [:node]}]

@@ -1,4 +1,4 @@
-(ns hooks.slingshot.try-plus
+(ns clj-kondo.slingshot.try-plus
   (:require [clj-kondo.hooks-api :as api]))
 
 (defn expand-catch [catch-node]

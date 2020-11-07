@@ -1,1 +1,1 @@
-{:config-paths ["../../resources/clj_kondo.exports/clj-kondo/rum"]}
+{:config-paths ["../../resources/clj-kondo.exports/clj-kondo/rum"]}

@@ -1,4 +1,4 @@
-(ns hooks.claypoole
+(ns clj-kondo.claypoole
   (:refer-clojure :exclude [future pmap pvalues])
   (:require [clj-kondo.hooks-api :as api]))
 

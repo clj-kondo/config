@@ -1,4 +1,4 @@
-(ns hooks.rum
+(ns clj-kondo.rum
   (:require [clj-kondo.hooks-api :as api]))
 
 (defn fn-body? [x]

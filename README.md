@@ -19,19 +19,23 @@ Assuming the following alias in your `deps.edn`:
 you can invoke it with:
 
 ``` shell
-$ clojure -A:clj-kondo/config --lib rum --lib slingshot
+$ clojure -M:clj-kondo/config --lib rum --lib slingshot
 ```
 
 This then copies Rum and Slingshot config into `.clj-kondo/configs/rum` and `.clj-kondo/configs/slingshot` respectively:
 
 ``` shell
-$ clojure -A:clj-kondo/config --lib rum --lib slingshot
+$ clojure -M:clj-kondo/config --lib rum --lib slingshot
 Copying rum config to .clj-kondo/configs/rum
 Copying slingshot config to .clj-kondo/configs/slingshot
 Add "configs/rum", "configs/slingshot" to :config-paths in .clj-kondo/config.edn to activate configs.
 ```
 
 To activate, you then add `"configs/rum"` and `"configs/slingshot"`  to your `:config-paths` in `config.edn` and Rum and Slinghot syntax will be recognized.
+
+Also see the
+[config.md](https://github.com/borkdude/clj-kondo/blob/master/doc/config.md#exporting-and-importing-configuration)
+section on importing and exporting configs.
 
 ## License
 

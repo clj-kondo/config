@@ -21,7 +21,7 @@
 (defn -main [& args]
   (let [{:keys [:lib ]} (:options (parse-opts args cli-options))]
     (doseq [l lib]
-      (when-let [resource (io/resource (str "clj-kondo.exports/clj_kondo/" l))]
+      (if-let [resource (io/resource (str "clj-kondo.exports/clj-kondo/" l))]
         (let [config-dir (io/file ".clj-kondo" "configs" l)]
           (when (.exists config-dir)
             (println "Removing previous" l "config in" (.getPath config-dir))
@@ -33,7 +33,8 @@
                         output-file (io/file config-dir relative-path)]]
             (io/make-parents output-file)
             (with-open [in (io/input-stream uri)]
-              (io/copy in output-file))))))
+              (io/copy in output-file))))
+        (println "No config found for " l)))
     (println "Add" (str/join
                     ", "
                     (map (fn [lib]

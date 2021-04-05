@@ -1,5 +1,5 @@
 {:hooks {:analyze-call {com.fulcrologic.fulcro.mutations/defmutation clj-kondo.fulcro/defmutation}}
- :linters {:fulcro.defmutation/handler-arity {:level :error}}
+ :linters {:com.fulcrologic.fulcro.mutations.defmutation/handler-arity {:level :error}}
  :lint-as {com.fulcrologic.fulcro.components/defsc                  clj-kondo.lint-as/def-catch-all
            com.fulcrologic.fulcro.routing.dynamic-routing/defrouter clojure.core/defn
            com.fulcrologic.guardrails.core/>defn                    clojure.core/defn

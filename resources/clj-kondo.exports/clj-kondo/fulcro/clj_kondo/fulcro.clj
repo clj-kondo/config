@@ -32,7 +32,7 @@
             {:keys [row col]} (meta argv)]
         (when-not (= 1 (count (api/sexpr argv)))
           (api/reg-finding! {:message (format "defmutation handler '%s' should be a fn of 1 arg" hname)
-                             :type    :fulcro.defmutation/handler-arity
+                             :type    :com.fulcrologic.fulcro.mutations.defmutation/handler-arity
                              :row     row
                              :col     col}))))
     {:node new-node}))

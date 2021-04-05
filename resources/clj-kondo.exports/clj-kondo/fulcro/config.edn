@@ -1,17 +1,7 @@
-{:lint-as {mount.core/defstate                                      clojure.core/def
-           taoensso.encore/if-let                                   clojure.core/let
-           com.wsscode.pathom.connect/defresolver                   clojure.core/defn
-           com.wsscode.pathom.connect/defmutation                   clojure.core/defn
-           com.fulcrologic.fulcro.mutations/defmutation             clojure.core/defn
-           com.fulcrologic.fulcro.components/defsc                  clj-kondo.lint-as/def-catch-all
+{:hooks {:analyze-call {com.fulcrologic.fulcro.mutations/defmutation clj-kondo.fulcro/defmutation}}
+ :linters {:fulcro.defmutation/handler-arity {:level :error}}
+ :lint-as {com.fulcrologic.fulcro.components/defsc                  clj-kondo.lint-as/def-catch-all
            com.fulcrologic.fulcro.routing.dynamic-routing/defrouter clojure.core/defn
            com.fulcrologic.guardrails.core/>defn                    clojure.core/defn
            com.fulcrologic.rad.attributes/defattr                   clojure.core/def
-           com.fulcrologic.rad.authorization/defauthenticator       clojure.core/def}
- :linters
- {:unused-namespace {:exclude [com.wsscode.pathom.connect]}
-  :unresolved-symbol
-  {:exclude
-   [(com.fulcrologic.fulcro.mutations/defmutation)
-    (com.wsscode.pathom.connect/defmutation)]}}}
-
+           com.fulcrologic.rad.authorization/defauthenticator       clojure.core/def}}

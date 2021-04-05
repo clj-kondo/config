@@ -23,7 +23,6 @@
                        (list
                         (api/token-node 'defn)
                         mutation-name
-                        (when ?docstring ?docstring)
                         params
                         letfn-node))]
     (doseq [handler handlers]
@@ -34,4 +33,29 @@
                              (meta argv)
                              {:message (format "defmutation handler '%s' should be a fn of 1 arg" hname)
                               :type    :clj-kondo.fulcro.defmutation/handler-arity})))))
+    {:node new-node}))
+
+(defn >defn
+  [{:keys [node]}]
+  (let [args       (rest (:children node))
+        fn-name    (first args)
+        ?docstring (when (string? (api/sexpr (second args)))
+                     (second args))
+        args       (if ?docstring
+                     (nnext args)
+                     (next args))
+        argv       (first args)
+        gspec      (second args)
+        body       (nnext args)
+        new-node   (api/list-node
+                    (list*
+                     (api/token-node 'defn)
+                     fn-name
+                     argv
+                     body))]
+    (when (not= (count (api/sexpr argv))
+                (count (take-while #(not= '=> %) (api/sexpr gspec))))
+      (api/reg-finding! (merge (meta gspec)
+                               {:message "Guardrail spec does not match function signature"
+                                :type    :clj-kondo.fulcro.>defn/signature-mismatch})))
     {:node new-node}))

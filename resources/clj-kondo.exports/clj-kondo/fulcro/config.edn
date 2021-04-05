@@ -1,6 +1,6 @@
 {:hooks {:analyze-call {com.fulcrologic.fulcro.mutations/defmutation clj-kondo.fulcro/defmutation}}
- :linters {:com.fulcrologic.fulcro.mutations.defmutation/handler-arity {:level :error}}
- :lint-as {com.fulcrologic.fulcro.components/defsc                  clj-kondo.lint-as/def-catch-all
+ :linters {:clj-kondo.fulcro.defmutation/handler-arity {:level :error}}
+ :lint-as {com.fulcrologic.fulcro.components/defsc                  clojure.core/defn
            com.fulcrologic.fulcro.routing.dynamic-routing/defrouter clojure.core/defn
            com.fulcrologic.guardrails.core/>defn                    clojure.core/defn
            com.fulcrologic.rad.attributes/defattr                   clojure.core/def

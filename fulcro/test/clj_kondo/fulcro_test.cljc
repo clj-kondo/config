@@ -20,13 +20,13 @@
   (remote [env] true) ;; unused binding 'env'
   )
 
-;; (defmutation mutation-example2
-;;   "Here is a doc string"
-;;   [params] ;; unused binding params
-;;   (action [_env] nil)
-;;   (remote [_env] true))
+(defmutation mutation-example2
+  "Here is a doc string"
+  [params] ;; unused binding params
+  (action [_env] nil)
+  (remote [_env] true))
 
-;; (defmutation mutation-example2 ;; error redefining var mutation-example2
-;;   [params]
-;;   (action [_env] nil)
-;;   (remote [_env] true))
+(defmutation mutation-example2 ;; redefining var mutation-example2
+  [params]
+  (action [_env] nil)
+  (remote [_env] true))

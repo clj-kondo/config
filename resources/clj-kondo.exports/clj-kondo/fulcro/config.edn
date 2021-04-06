@@ -4,6 +4,7 @@
            :clj-kondo.fulcro.>defn/signature-mismatch {:level :error}}
  :lint-as {com.fulcrologic.fulcro.components/defsc                  clojure.core/defn
            com.fulcrologic.fulcro.routing.dynamic-routing/defrouter clojure.core/defn
+           com.fulcrologic.fulcro.ui-state-machines/defstatemachine clojure.core/def
            com.fulcrologic.guardrails.core/>def                     clojure.core/def
            com.fulcrologic.guardrails.core/>defn                    clojure.core/defn
            com.fulcrologic.rad.attributes/defattr                   clojure.core/def

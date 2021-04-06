@@ -5,10 +5,11 @@
    [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
    [com.fulcrologic.fulcro.mutations :refer [defmutation]]
    [com.fulcrologic.fulcro.routing.dynamic-routing :refer [defrouter]]
-   [com.fulcrologic.guardrails.core :refer [>def >defn]]
+   [com.fulcrologic.guardrails.core :refer [>def >defn =>]]
    [com.fulcrologic.rad.attributes :refer [defattr]]
    [com.fulcrologic.rad.attribute-options :as ao]
-   [com.fulcrologic.rad.authorization :refer [defauthenticator]]))
+   [com.fulcrologic.rad.authorization :refer [defauthenticator]]
+   [clojure.spec.alpha :as s]))
 
 (defattr id :uuid
   {ao/identity? true})
@@ -47,7 +48,7 @@
 (>def person-name string?)
 
 (>defn say-hello [person-name]
-  [person-name => nil?]
+  [person-name => (s/or nil? string?)]
   (println (str "Hello, " person-name)))
 
 (>defn say-hello2 [person-name address]

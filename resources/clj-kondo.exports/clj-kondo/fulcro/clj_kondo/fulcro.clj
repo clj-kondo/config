@@ -52,6 +52,7 @@
                      (api/token-node 'defn)
                      fn-name
                      argv
+                     gspec
                      body))]
     (when (not= (count (api/sexpr argv))
                 (count (take-while #(not= '=> %) (api/sexpr gspec))))

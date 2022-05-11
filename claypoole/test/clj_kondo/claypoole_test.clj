@@ -1,5 +1,6 @@
 (ns example
-  (:require [com.climate.claypoole :as cp]))
+  (:require
+   [com.climate.claypoole :as cp]))
 
 (def pool (cp/threadpool 8))
 (def coll [1 2 3])
@@ -23,6 +24,15 @@
            (fn [x y] (println "Mapping over" [x y]))
            coll
            coll)
+
+  ;; upmap
+  (cp/upmap 8
+            (fn [x] (println "Mapping over" x))
+            coll)
+  (cp/upmap pool
+            (fn [x y] (println "Mapping over" [x y]))
+            coll
+            coll)
 
   ;; pvalues
   (println "Parallel values"

@@ -34,6 +34,7 @@
 (def completable-future (pool-and-body 'future))
 (def pdoseq (pool-with-binding-vec-or-exprs-and-body 'doseq))
 (def pmap (pool-and-body 'map))
+(def upmap (pool-and-body 'map))
 (def pvalues (pool-and-body 'pvalues))
 (def upvalues (pool-and-body 'pvalues))
 (def pfor (pool-with-binding-vec-or-exprs-and-body 'for))

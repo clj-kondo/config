@@ -1,2 +1,0 @@
-{:hooks
- {:analyze-call {better-cond.core/cond clj-kondo.better-cond/cond}}}

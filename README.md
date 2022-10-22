@@ -1,5 +1,9 @@
 # Clj-kondo config
 
+**Deprecated**
+
+Use [configs](https://github.com/clj-kondo/configs) instead.
+
 This repo contains configurations and/or recommendations that can be used with
 [clj-kondo](https://github.com/borkdude/clj-kondo/). Check the `resources` folder for available configs.
 
